@@ -108,7 +108,7 @@
             this.sevenButton.TabIndex = 4;
             this.sevenButton.Text = "7";
             this.sevenButton.UseVisualStyleBackColor = true;
-            this.sevenButton.Click += new System.EventHandler(this.sevenButton_Click);
+            this.sevenButton.Click += new System.EventHandler(this.SevenButton_Click);
             // 
             // fourButton
             // 
@@ -120,7 +120,7 @@
             this.fourButton.TabIndex = 5;
             this.fourButton.Text = "4";
             this.fourButton.UseVisualStyleBackColor = true;
-            this.fourButton.Click += new System.EventHandler(this.fourButton_Click);
+            this.fourButton.Click += new System.EventHandler(this.FourButton_Click);
             // 
             // oneButton
             // 
@@ -132,7 +132,7 @@
             this.oneButton.TabIndex = 6;
             this.oneButton.Text = "1";
             this.oneButton.UseVisualStyleBackColor = true;
-            this.oneButton.Click += new System.EventHandler(this.oneButton_Click);
+            this.oneButton.Click += new System.EventHandler(this.OneButton_Click);
             // 
             // changeSignButton
             // 
@@ -210,7 +210,7 @@
             this.eightButton.TabIndex = 14;
             this.eightButton.Text = "8";
             this.eightButton.UseVisualStyleBackColor = true;
-            this.eightButton.Click += new System.EventHandler(this.eightButton_Click);
+            this.eightButton.Click += new System.EventHandler(this.EightButton_Click);
             // 
             // nineButton
             // 
@@ -222,7 +222,7 @@
             this.nineButton.TabIndex = 15;
             this.nineButton.Text = "9";
             this.nineButton.UseVisualStyleBackColor = true;
-            this.nineButton.Click += new System.EventHandler(this.nineButton_Click);
+            this.nineButton.Click += new System.EventHandler(this.NineButton_Click);
             // 
             // multiplicationButton
             // 
@@ -245,7 +245,7 @@
             this.fiveButton.TabIndex = 17;
             this.fiveButton.Text = "5";
             this.fiveButton.UseVisualStyleBackColor = true;
-            this.fiveButton.Click += new System.EventHandler(this.fiveButton_Click);
+            this.fiveButton.Click += new System.EventHandler(this.FiveButton_Click);
             // 
             // sixButton
             // 
@@ -257,7 +257,7 @@
             this.sixButton.TabIndex = 18;
             this.sixButton.Text = "6";
             this.sixButton.UseVisualStyleBackColor = true;
-            this.sixButton.Click += new System.EventHandler(this.sixButton_Click);
+            this.sixButton.Click += new System.EventHandler(this.SixButton_Click);
             // 
             // minusButton
             // 
@@ -280,7 +280,7 @@
             this.twoButton.TabIndex = 20;
             this.twoButton.Text = "2";
             this.twoButton.UseVisualStyleBackColor = true;
-            this.twoButton.Click += new System.EventHandler(this.twoButton_Click);
+            this.twoButton.Click += new System.EventHandler(this.TwoButton_Click);
             // 
             // threeButton
             // 
@@ -292,7 +292,7 @@
             this.threeButton.TabIndex = 21;
             this.threeButton.Text = "3";
             this.threeButton.UseVisualStyleBackColor = true;
-            this.threeButton.Click += new System.EventHandler(this.threeButton_Click);
+            this.threeButton.Click += new System.EventHandler(this.ThreeButton_Click);
             // 
             // plusButton
             // 
@@ -304,7 +304,7 @@
             this.plusButton.TabIndex = 22;
             this.plusButton.Text = "+";
             this.plusButton.UseVisualStyleBackColor = true;
-            this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
+            this.plusButton.Click += new System.EventHandler(this.PlusButton_Click);
             // 
             // zeroButton
             // 
@@ -339,6 +339,7 @@
             this.equalityButton.TabIndex = 25;
             this.equalityButton.Text = "=";
             this.equalityButton.UseVisualStyleBackColor = true;
+            this.equalityButton.Click += new System.EventHandler(this.EqualityButton_Click);
             // 
             // deleteButton
             // 

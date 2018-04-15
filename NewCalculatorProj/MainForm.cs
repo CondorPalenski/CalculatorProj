@@ -16,77 +16,83 @@ namespace NewCalculatorProj
         {
             InitializeComponent();
             result = 0;
+            press_equality = false;
         }
-        decimal result;
+        decimal result;//Store total result
+        byte last_operation;//Store last operation for equality
+        bool press_equality;//Indicator for checking pressing of Equality
         private void zeroButton_Click(object sender, EventArgs e)
         {
-            if (resultLabel.Text[0] != '0')
+            if (press_equality == true)
             {
-                Size len = TextRenderer.MeasureText("0", resultLabel.Font);
-                if (this.Width - (resultLabel.Width + len.Width)>0)
-                {
-                    resultLabel.Text += "0";
-                    resultLabel.Location = new Point(this.Width-20-resultLabel.Width,resultLabel.Location.Y);
-                }
+                resultLabel.Text = "0";
+                press_equality = false;
             }
-        }
-
-        private void oneButton_Click(object sender, EventArgs e)
-        {
-            if (resultLabel.Text[0] != '0')
+            if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
             {
-                Size len = TextRenderer.MeasureText("1", resultLabel.Font);
-                if (this.Width - (resultLabel.Width + len.Width) > 0)
-                {
-                    resultLabel.Text += "1";
-                    resultLabel.Location = new Point(this.Width - 20 - resultLabel.Width, resultLabel.Location.Y);
-                }
-                else
-                {
-                    resultLabel.Text += "1";
-                }
+                ShiftResultLabel("0");
+                resultLabel.Text += "0";
+                BlockButton(true);
             }
             else
             {
+                ShiftResultLabel(" ");
+                resultLabel.Text = "0";
+            }
+        }
+
+        private void OneButton_Click(object sender, EventArgs e)
+        {
+            if (press_equality == true)
+            {
+                resultLabel.Text = "0";
+                press_equality = false;
+            }
+            if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
+            {
+                ShiftResultLabel("1");
+                resultLabel.Text += "1";
+                BlockButton(true);
+            }
+            else
+            {
+                ShiftResultLabel(" ");
                 resultLabel.Text = "1";
             }
         }
 
-        private void twoButton_Click(object sender, EventArgs e)
+        private void TwoButton_Click(object sender, EventArgs e)
         {
-            if (resultLabel.Text[0] != '0')
+            if (press_equality==true)
             {
-                Size len = TextRenderer.MeasureText("1", resultLabel.Font);
-                if (this.Width - (resultLabel.Width + len.Width) > 0)
-                {
-                    resultLabel.Text += "2";
-                    resultLabel.Location = new Point(this.Width - 20 - resultLabel.Width, resultLabel.Location.Y);
-                }
-                else
-                {
-                    resultLabel.Text += "2";
-                }
+                resultLabel.Text = "0";
+                press_equality = false;
+            }
+            if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
+            {
+                ShiftResultLabel("2");
+                resultLabel.Text += "2";
+                BlockButton(true);
             }
             else
             {
+                ShiftResultLabel(" ");
                 resultLabel.Text = "2";
             }
         }
 
-        private void threeButton_Click(object sender, EventArgs e)
+        private void ThreeButton_Click(object sender, EventArgs e)
         {
-            if (resultLabel.Text[0] != '0')
+            if (press_equality == true)
             {
-                Size len = TextRenderer.MeasureText("1", resultLabel.Font);
-                if (this.Width - (resultLabel.Width + len.Width) > 0)
-                {
-                    resultLabel.Text += "3";
-                    resultLabel.Location = new Point(this.Width - 20 - resultLabel.Width, resultLabel.Location.Y);
-                }
-                else
-                {
-                    resultLabel.Text += "3";
-                }
+                resultLabel.Text = "0";
+                press_equality = false;
+            }
+            if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
+            {
+                ShiftResultLabel(threeButton.Text);
+                resultLabel.Text += "3";
+                BlockButton(true);
             }
             else
             {
@@ -94,20 +100,18 @@ namespace NewCalculatorProj
             }
         }
 
-        private void fourButton_Click(object sender, EventArgs e)
+        private void FourButton_Click(object sender, EventArgs e)
         {
-            if (resultLabel.Text[0] != '0')
+            if (press_equality == true)
             {
-                Size len = TextRenderer.MeasureText("1", resultLabel.Font);
-                if (this.Width - (resultLabel.Width + len.Width) > 0)
-                {
-                    resultLabel.Text += "4";
-                    resultLabel.Location = new Point(this.Width - 20 - resultLabel.Width, resultLabel.Location.Y);
-                }
-                else
-                {
-                    resultLabel.Text += "4";
-                }
+                resultLabel.Text = "0";
+                press_equality = false;
+            }
+            if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
+            {
+                ShiftResultLabel(fourButton.Text);
+                resultLabel.Text += "4";
+                BlockButton(true);
             }
             else
             {
@@ -115,20 +119,18 @@ namespace NewCalculatorProj
             }
         }
 
-        private void fiveButton_Click(object sender, EventArgs e)
+        private void FiveButton_Click(object sender, EventArgs e)
         {
-            if (resultLabel.Text[0] != '0')
+            if (press_equality == true)
             {
-                Size len = TextRenderer.MeasureText("1", resultLabel.Font);
-                if (this.Width - (resultLabel.Width + len.Width) > 0)
-                {
-                    resultLabel.Text += "5";
-                    resultLabel.Location = new Point(this.Width - 20 - resultLabel.Width, resultLabel.Location.Y);
-                }
-                else
-                {
-                    resultLabel.Text += "5";
-                }
+                resultLabel.Text = "0";
+                press_equality = false;
+            }
+            if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
+            {
+                ShiftResultLabel(fiveButton.Text);
+                resultLabel.Text += "5";
+                BlockButton(true);
             }
             else
             {
@@ -136,20 +138,18 @@ namespace NewCalculatorProj
             }
         }
 
-        private void sixButton_Click(object sender, EventArgs e)
+        private void SixButton_Click(object sender, EventArgs e)
         {
-            if (resultLabel.Text[0] != '0')
+            if (press_equality == true)
             {
-                Size len = TextRenderer.MeasureText("1", resultLabel.Font);
-                if (this.Width - (resultLabel.Width + len.Width) > 0)
-                {
-                    resultLabel.Text += "6";
-                    resultLabel.Location = new Point(this.Width - 20 - resultLabel.Width, resultLabel.Location.Y);
-                }
-                else
-                {
-                    resultLabel.Text += "6";
-                }
+                resultLabel.Text = "0";
+                press_equality = false;
+            }
+            if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
+            {
+                ShiftResultLabel(nineButton.Text);
+                resultLabel.Text += "6";
+                BlockButton(true);
             }
             else
             {
@@ -157,20 +157,18 @@ namespace NewCalculatorProj
             }
         }
 
-        private void sevenButton_Click(object sender, EventArgs e)
+        private void SevenButton_Click(object sender, EventArgs e)
         {
-            if (resultLabel.Text[0] != '0')
+            if (press_equality == true)
             {
-                Size len = TextRenderer.MeasureText("1", resultLabel.Font);
-                if (this.Width - (resultLabel.Width + len.Width) > 0)
-                {
-                    resultLabel.Text += "7";
-                    resultLabel.Location = new Point(this.Width - 20 - resultLabel.Width, resultLabel.Location.Y);
-                }
-                else
-                {
-                    resultLabel.Text += "7";
-                }
+                resultLabel.Text = "0";
+                press_equality = false;
+            }
+            if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
+            {
+                ShiftResultLabel(nineButton.Text);
+                resultLabel.Text += "7";
+                BlockButton(true);
             }
             else
             {
@@ -178,20 +176,18 @@ namespace NewCalculatorProj
             }
         }
 
-        private void eightButton_Click(object sender, EventArgs e)
+        private void EightButton_Click(object sender, EventArgs e)
         {
-            if (resultLabel.Text[0] != '0')
+            if (press_equality == true)
             {
-                Size len = TextRenderer.MeasureText("1", resultLabel.Font);
-                if (this.Width - (resultLabel.Width + len.Width) > 0)
-                {
-                    resultLabel.Text += "8";
-                    resultLabel.Location = new Point(this.Width - 20 - resultLabel.Width, resultLabel.Location.Y);
-                }
-                else
-                {
-                    resultLabel.Text += "8";
-                }
+                resultLabel.Text = "0";
+                press_equality = false;
+            }
+            if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
+            {
+                ShiftResultLabel(nineButton.Text);
+                resultLabel.Text += "8";
+                BlockButton(true);
             }
             else
             {
@@ -199,20 +195,18 @@ namespace NewCalculatorProj
             }
         }
 
-        private void nineButton_Click(object sender, EventArgs e)
+        private void NineButton_Click(object sender, EventArgs e)
         {
-            if (resultLabel.Text[0] != '0')
+            if (press_equality == true)
             {
-                Size len = TextRenderer.MeasureText("1", resultLabel.Font);
-                if (this.Width - (resultLabel.Width + len.Width) > 0)
-                {
-                    resultLabel.Text += "9";
-                    resultLabel.Location = new Point(this.Width - 20 - resultLabel.Width, resultLabel.Location.Y);
-                }
-                else
-                {
-                    resultLabel.Text += "9";
-                }
+                resultLabel.Text = "0";
+                press_equality = false;
+            }
+            if ((resultLabel.Text[0] != '0')&&(divisionButton.Enabled==true))
+            {
+                ShiftResultLabel(nineButton.Text);
+                resultLabel.Text += "9";
+                BlockButton(true);
             }
             else
             {
@@ -220,20 +214,12 @@ namespace NewCalculatorProj
             }
         }
 
-        private void plusButton_Click(object sender, EventArgs e)
+        private void PlusButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                result += Decimal.Parse(resultLabel.Text);
-                resultLabel.Text = "0";
-            }
-            catch
-            {
-                resultLabel.Text = "Invalid input";
-                BlockButton(false);
-            }
+            Plus();
         }
 
+        //Block or unblock all buttons except for digitals and C,CE,<<
         private void BlockButton(bool status)
         {
             changeSignButton.Enabled = status;
@@ -246,6 +232,58 @@ namespace NewCalculatorProj
             squareRootButton.Enabled = status;
             squaringButton.Enabled = status;
             fractionButton.Enabled = status;           
+        }
+
+        //Add digit to result
+        private void Plus()
+        {
+            try
+            {
+                string res = resultLabel.Text;
+                if(press_equality==true)
+                {
+                    res = "0";
+                }
+                result += Decimal.Parse(res);
+                resultLabel.Text = "0";
+                ShiftResultLabel(" ");
+                BlockButton(true);
+                last_operation = 1;
+            }
+            catch
+            {
+                resultLabel.Text = "Invalid input";
+                BlockButton(false);
+            }
+        }
+
+        //Shift resultLabel before adding of resut
+        private void ShiftResultLabel(string text)
+        {
+            Size len = TextRenderer.MeasureText(text, resultLabel.Font);
+            if (this.Width - (resultLabel.Width + len.Width) > (5))
+            {
+                resultLabel.Location = new Point(this.Width - len.Width - resultLabel.Width, resultLabel.Location.Y);
+            }
+        }
+
+        private void EqualityButton_Click(object sender, EventArgs e)
+        {
+            if (last_operation == 1)
+            {
+                Plus();
+                resultLabel.Text = " ";
+                ShiftResultLabel(result.ToString());
+
+            }
+            else
+            {
+                resultLabel.Text = " ";
+                ShiftResultLabel(result.ToString());
+            }
+            resultLabel.Text = result.ToString();
+            last_operation = 0;
+            press_equality = true;
         }
     }
 }
