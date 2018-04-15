@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.operationsQueueLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.resultLabel = new System.Windows.Forms.Label();
             this.percentButton = new System.Windows.Forms.Button();
             this.cleanEntireButton = new System.Windows.Forms.Button();
             this.sevenButton = new System.Windows.Forms.Button();
@@ -66,15 +66,15 @@
             this.operationsQueueLabel.Size = new System.Drawing.Size(0, 18);
             this.operationsQueueLabel.TabIndex = 0;
             // 
-            // label1
+            // resultLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(362, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 37);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "0";
+            this.resultLabel.AutoSize = true;
+            this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.resultLabel.Location = new System.Drawing.Point(362, 49);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(36, 37);
+            this.resultLabel.TabIndex = 1;
+            this.resultLabel.Text = "0";
             // 
             // percentButton
             // 
@@ -108,6 +108,7 @@
             this.sevenButton.TabIndex = 4;
             this.sevenButton.Text = "7";
             this.sevenButton.UseVisualStyleBackColor = true;
+            this.sevenButton.Click += new System.EventHandler(this.sevenButton_Click);
             // 
             // fourButton
             // 
@@ -119,6 +120,7 @@
             this.fourButton.TabIndex = 5;
             this.fourButton.Text = "4";
             this.fourButton.UseVisualStyleBackColor = true;
+            this.fourButton.Click += new System.EventHandler(this.fourButton_Click);
             // 
             // oneButton
             // 
@@ -130,6 +132,7 @@
             this.oneButton.TabIndex = 6;
             this.oneButton.Text = "1";
             this.oneButton.UseVisualStyleBackColor = true;
+            this.oneButton.Click += new System.EventHandler(this.oneButton_Click);
             // 
             // changeSignButton
             // 
@@ -207,6 +210,7 @@
             this.eightButton.TabIndex = 14;
             this.eightButton.Text = "8";
             this.eightButton.UseVisualStyleBackColor = true;
+            this.eightButton.Click += new System.EventHandler(this.eightButton_Click);
             // 
             // nineButton
             // 
@@ -218,6 +222,7 @@
             this.nineButton.TabIndex = 15;
             this.nineButton.Text = "9";
             this.nineButton.UseVisualStyleBackColor = true;
+            this.nineButton.Click += new System.EventHandler(this.nineButton_Click);
             // 
             // multiplicationButton
             // 
@@ -240,6 +245,7 @@
             this.fiveButton.TabIndex = 17;
             this.fiveButton.Text = "5";
             this.fiveButton.UseVisualStyleBackColor = true;
+            this.fiveButton.Click += new System.EventHandler(this.fiveButton_Click);
             // 
             // sixButton
             // 
@@ -251,6 +257,7 @@
             this.sixButton.TabIndex = 18;
             this.sixButton.Text = "6";
             this.sixButton.UseVisualStyleBackColor = true;
+            this.sixButton.Click += new System.EventHandler(this.sixButton_Click);
             // 
             // minusButton
             // 
@@ -273,6 +280,7 @@
             this.twoButton.TabIndex = 20;
             this.twoButton.Text = "2";
             this.twoButton.UseVisualStyleBackColor = true;
+            this.twoButton.Click += new System.EventHandler(this.twoButton_Click);
             // 
             // threeButton
             // 
@@ -284,6 +292,7 @@
             this.threeButton.TabIndex = 21;
             this.threeButton.Text = "3";
             this.threeButton.UseVisualStyleBackColor = true;
+            this.threeButton.Click += new System.EventHandler(this.threeButton_Click);
             // 
             // plusButton
             // 
@@ -306,6 +315,7 @@
             this.zeroButton.TabIndex = 23;
             this.zeroButton.Text = "0";
             this.zeroButton.UseVisualStyleBackColor = true;
+            this.zeroButton.Click += new System.EventHandler(this.zeroButton_Click);
             // 
             // commaButton
             // 
@@ -369,7 +379,7 @@
             this.Controls.Add(this.sevenButton);
             this.Controls.Add(this.cleanEntireButton);
             this.Controls.Add(this.percentButton);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.operationsQueueLabel);
             this.Name = "MainForm";
             this.Text = "Calculator";
@@ -381,7 +391,7 @@
         #endregion
 
         private System.Windows.Forms.Label operationsQueueLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.Button percentButton;
         private System.Windows.Forms.Button cleanEntireButton;
         private System.Windows.Forms.Button sevenButton;
