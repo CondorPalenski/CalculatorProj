@@ -15,8 +15,9 @@ namespace NewCalculatorProj
         public MainForm()
         {
             InitializeComponent();
+            result = 0;
         }
-
+        decimal result;
         private void zeroButton_Click(object sender, EventArgs e)
         {
             if (resultLabel.Text[0] != '0')
@@ -217,6 +218,34 @@ namespace NewCalculatorProj
             {
                 resultLabel.Text = "9";
             }
+        }
+
+        private void plusButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                result += Decimal.Parse(resultLabel.Text);
+                resultLabel.Text = "0";
+            }
+            catch
+            {
+                resultLabel.Text = "Invalid input";
+                BlockButton(false);
+            }
+        }
+
+        private void BlockButton(bool status)
+        {
+            changeSignButton.Enabled = status;
+            commaButton.Enabled = status;
+            plusButton.Enabled = status;
+            minusButton.Enabled = status;
+            multiplicationButton.Enabled = status;
+            divisionButton.Enabled = status;
+            percentButton.Enabled = status;
+            squareRootButton.Enabled = status;
+            squaringButton.Enabled = status;
+            fractionButton.Enabled = status;           
         }
     }
 }

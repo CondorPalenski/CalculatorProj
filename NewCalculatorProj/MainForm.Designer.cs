@@ -304,6 +304,7 @@
             this.plusButton.TabIndex = 22;
             this.plusButton.Text = "+";
             this.plusButton.UseVisualStyleBackColor = true;
+            this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
             // 
             // zeroButton
             // 
