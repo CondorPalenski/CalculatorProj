@@ -199,6 +199,7 @@
             this.divisionButton.TabIndex = 13;
             this.divisionButton.Text = "/";
             this.divisionButton.UseVisualStyleBackColor = true;
+            this.divisionButton.Click += new System.EventHandler(this.divisionButton_Click);
             // 
             // eightButton
             // 
@@ -234,6 +235,7 @@
             this.multiplicationButton.TabIndex = 16;
             this.multiplicationButton.Text = "X";
             this.multiplicationButton.UseVisualStyleBackColor = true;
+            this.multiplicationButton.Click += new System.EventHandler(this.multiplicationButton_Click);
             // 
             // fiveButton
             // 

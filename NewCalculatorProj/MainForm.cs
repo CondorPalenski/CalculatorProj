@@ -21,6 +21,7 @@ namespace NewCalculatorProj
         decimal result;//Store total result
         byte last_operation;//Store last operation for equality
         bool press_equality;//Indicator for checking pressing of Equality
+        #region Digits buttons
         private void zeroButton_Click(object sender, EventArgs e)
         {
             if (press_equality == true)
@@ -30,17 +31,16 @@ namespace NewCalculatorProj
             }
             if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
             {
-                ShiftResultLabel("0");
                 resultLabel.Text += "0";
                 BlockButton(true);
             }
             else
             {
-                ShiftResultLabel(" ");
                 resultLabel.Text = "0";
             }
+            BlockButton(true);
+            ShiftResultLabel(" ");
         }
-
         private void OneButton_Click(object sender, EventArgs e)
         {
             if (press_equality == true)
@@ -50,17 +50,15 @@ namespace NewCalculatorProj
             }
             if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
             {
-                ShiftResultLabel("1");
                 resultLabel.Text += "1";
-                BlockButton(true);
             }
             else
             {
-                ShiftResultLabel(" ");
                 resultLabel.Text = "1";
             }
+            BlockButton(true);
+            ShiftResultLabel("1");
         }
-
         private void TwoButton_Click(object sender, EventArgs e)
         {
             if (press_equality==true)
@@ -70,17 +68,15 @@ namespace NewCalculatorProj
             }
             if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
             {
-                ShiftResultLabel("2");
                 resultLabel.Text += "2";
-                BlockButton(true);
             }
             else
             {
-                ShiftResultLabel(" ");
                 resultLabel.Text = "2";
             }
+            BlockButton(true);
+            ShiftResultLabel("2");
         }
-
         private void ThreeButton_Click(object sender, EventArgs e)
         {
             if (press_equality == true)
@@ -90,16 +86,15 @@ namespace NewCalculatorProj
             }
             if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
             {
-                ShiftResultLabel(threeButton.Text);
                 resultLabel.Text += "3";
-                BlockButton(true);
             }
             else
             {
                 resultLabel.Text = "3";
             }
+            BlockButton(true);
+            ShiftResultLabel(threeButton.Text);
         }
-
         private void FourButton_Click(object sender, EventArgs e)
         {
             if (press_equality == true)
@@ -109,16 +104,15 @@ namespace NewCalculatorProj
             }
             if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
             {
-                ShiftResultLabel(fourButton.Text);
                 resultLabel.Text += "4";
-                BlockButton(true);
             }
             else
             {
                 resultLabel.Text = "4";
             }
+            BlockButton(true);
+            ShiftResultLabel(fourButton.Text);
         }
-
         private void FiveButton_Click(object sender, EventArgs e)
         {
             if (press_equality == true)
@@ -128,16 +122,15 @@ namespace NewCalculatorProj
             }
             if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
             {
-                ShiftResultLabel(fiveButton.Text);
                 resultLabel.Text += "5";
-                BlockButton(true);
             }
             else
             {
                 resultLabel.Text = "5";
             }
+            ShiftResultLabel(fiveButton.Text);
+            BlockButton(true);
         }
-
         private void SixButton_Click(object sender, EventArgs e)
         {
             if (press_equality == true)
@@ -147,16 +140,15 @@ namespace NewCalculatorProj
             }
             if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
             {
-                ShiftResultLabel(nineButton.Text);
                 resultLabel.Text += "6";
-                BlockButton(true);
             }
             else
             {
                 resultLabel.Text = "6";
             }
+            ShiftResultLabel(sixButton.Text);
+            BlockButton(true);
         }
-
         private void SevenButton_Click(object sender, EventArgs e)
         {
             if (press_equality == true)
@@ -166,16 +158,15 @@ namespace NewCalculatorProj
             }
             if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
             {
-                ShiftResultLabel(nineButton.Text);
                 resultLabel.Text += "7";
-                BlockButton(true);
             }
             else
             {
                 resultLabel.Text = "7";
             }
+            ShiftResultLabel(sevenButton.Text);
+            BlockButton(true);
         }
-
         private void EightButton_Click(object sender, EventArgs e)
         {
             if (press_equality == true)
@@ -185,16 +176,15 @@ namespace NewCalculatorProj
             }
             if ((resultLabel.Text[0] != '0') && (divisionButton.Enabled == true))
             {
-                ShiftResultLabel(nineButton.Text);
                 resultLabel.Text += "8";
-                BlockButton(true);
             }
             else
             {
                 resultLabel.Text = "8";
             }
+            ShiftResultLabel(eightButton.Text);
+            BlockButton(true);
         }
-
         private void NineButton_Click(object sender, EventArgs e)
         {
             if (press_equality == true)
@@ -204,25 +194,15 @@ namespace NewCalculatorProj
             }
             if ((resultLabel.Text[0] != '0')&&(divisionButton.Enabled==true))
             {
-                ShiftResultLabel(nineButton.Text);
-                resultLabel.Text += "9";
-                BlockButton(true);
-            }
+                resultLabel.Text += "9";            }
             else
             {
                 resultLabel.Text = "9";
             }
+            ShiftResultLabel(nineButton.Text);
+            BlockButton(true);
         }
-
-        private void PlusButton_Click(object sender, EventArgs e)
-        {
-            result = Decimal.Parse(resultLabel.Text);
-            resultLabel.Text = "0";
-            ShiftResultLabel(" ");
-            last_operation = 1;
-            press_equality = false;
-        }
-
+        #endregion
         //Block or unblock all buttons except for digitals and C,CE,<<
         private void BlockButton(bool status)
         {
@@ -237,12 +217,9 @@ namespace NewCalculatorProj
             squaringButton.Enabled = status;
             fractionButton.Enabled = status;           
         }
-
         //Add number to result
         private void Plus()
         {
-            try
-            {
                 string res = resultLabel.Text;
                 if(press_equality==true)
                 {
@@ -253,19 +230,10 @@ namespace NewCalculatorProj
                 ShiftResultLabel(" ");
                 BlockButton(true);
                 last_operation = 1;
-            }
-            catch
-            {
-                resultLabel.Text = "Invalid input";
-                BlockButton(false);
-            }
         }
-
         //Subtract number to result
         private void Minus()
         {
-            try
-            {
                 string res = resultLabel.Text;
                 if (press_equality == true)
                 {
@@ -276,12 +244,32 @@ namespace NewCalculatorProj
                 ShiftResultLabel(" ");
                 BlockButton(true);
                 last_operation = 2;
-            }
-            catch
-            {
-                resultLabel.Text = "Invalid input";
-                BlockButton(false);
-            }
+        }
+        private void Multiplicate()
+        {
+                string res = resultLabel.Text;
+                if (press_equality == true)
+                {
+                    res = "0";
+                }
+                result *= Decimal.Parse(res);
+                resultLabel.Text = "0";
+                ShiftResultLabel(" ");
+                BlockButton(true);
+                last_operation = 3;
+        }
+        private void Division()
+        {
+                string res = resultLabel.Text;
+                if (press_equality == true)
+                {
+                    res = "0";
+                }
+                result /= Decimal.Parse(res);
+                resultLabel.Text = "0";
+                ShiftResultLabel(" ");
+                BlockButton(true);
+                last_operation = 4;
         }
         //Shift resultLabel before adding of resut
         private void ShiftResultLabel(string text)
@@ -292,32 +280,78 @@ namespace NewCalculatorProj
                 resultLabel.Location = new Point(this.Width - len.Width - resultLabel.Width, resultLabel.Location.Y);
             }
         }
-
+        #region OperationsButton
         private void EqualityButton_Click(object sender, EventArgs e)
         {
+            press_equality = true;
             if (last_operation == 1)
             {
-                Plus();
-                resultLabel.Text = " ";
-                ShiftResultLabel(result.ToString());
-
+                try
+                {
+                    Plus();
+                    resultLabel.Text = " ";
+                    ShiftResultLabel(result.ToString());
+                }
+                catch
+                {
+                    resultLabel.Text = "Invalid input";
+                    ShiftResultLabel(" ");
+                    BlockButton(false);
+                    return;
+                }
             }
             else if(last_operation==2)
             {
-                Minus();
-                resultLabel.Text = " ";
-                ShiftResultLabel(result.ToString());
+                try
+                {
+                    Minus();
+                    resultLabel.Text = " ";
+                    ShiftResultLabel(result.ToString());
+                }
+                catch
+                {
+                    resultLabel.Text = "Invalid input";
+                    ShiftResultLabel(" ");
+                    BlockButton(false);
+                    return;
+                }
             }
-            else
+            else if(last_operation==3)
             {
-                resultLabel.Text = " ";
-                ShiftResultLabel(result.ToString());
+                try
+                {
+                    Multiplicate();
+                    resultLabel.Text = " ";
+                    ShiftResultLabel(result.ToString());
+                }
+                catch
+                {
+                    resultLabel.Text = "Invalid input";
+                    ShiftResultLabel(" ");
+                    BlockButton(false);
+                    return;
+                }
+            }
+            else if(last_operation==4)
+            {
+                try
+                {
+                    Division();
+                    resultLabel.Text = " ";
+                    ShiftResultLabel(result.ToString());
+                }
+                catch
+                {
+                    resultLabel.Text = "Invalid input";
+                    ShiftResultLabel(" ");
+                    BlockButton(false);
+                    return;
+                }
+
             }
             resultLabel.Text = result.ToString();
             last_operation = 0;
-            press_equality = true;
         }
-
         private void minusButton_Click(object sender, EventArgs e)
         {
             result = Decimal.Parse(resultLabel.Text);
@@ -326,5 +360,30 @@ namespace NewCalculatorProj
             last_operation = 2;
             press_equality = false;
         }
+        private void multiplicationButton_Click(object sender, EventArgs e)
+        {
+            result = Decimal.Parse(resultLabel.Text);
+            resultLabel.Text = "0";
+            ShiftResultLabel(" ");
+            last_operation = 3;
+            press_equality = false;
+        }
+        private void divisionButton_Click(object sender, EventArgs e)
+        {
+            result = Decimal.Parse(resultLabel.Text);
+            resultLabel.Text = "0";
+            ShiftResultLabel(" ");
+            last_operation = 4;
+            press_equality = false;
+        }
+        private void PlusButton_Click(object sender, EventArgs e)
+        {
+            result = Decimal.Parse(resultLabel.Text);
+            resultLabel.Text = "0";
+            ShiftResultLabel(" ");
+            last_operation = 1;
+            press_equality = false;
+        }
+        #endregion
     }
 }
