@@ -216,7 +216,11 @@ namespace NewCalculatorProj
 
         private void PlusButton_Click(object sender, EventArgs e)
         {
-            Plus();
+            result = Decimal.Parse(resultLabel.Text);
+            resultLabel.Text = "0";
+            ShiftResultLabel(" ");
+            last_operation = 1;
+            press_equality = false;
         }
 
         //Block or unblock all buttons except for digitals and C,CE,<<
@@ -234,7 +238,7 @@ namespace NewCalculatorProj
             fractionButton.Enabled = status;           
         }
 
-        //Add digit to result
+        //Add number to result
         private void Plus()
         {
             try
@@ -257,6 +261,28 @@ namespace NewCalculatorProj
             }
         }
 
+        //Subtract number to result
+        private void Minus()
+        {
+            try
+            {
+                string res = resultLabel.Text;
+                if (press_equality == true)
+                {
+                    res = "0";
+                }
+                result -= Decimal.Parse(res);
+                resultLabel.Text = "0";
+                ShiftResultLabel(" ");
+                BlockButton(true);
+                last_operation = 2;
+            }
+            catch
+            {
+                resultLabel.Text = "Invalid input";
+                BlockButton(false);
+            }
+        }
         //Shift resultLabel before adding of resut
         private void ShiftResultLabel(string text)
         {
@@ -276,6 +302,12 @@ namespace NewCalculatorProj
                 ShiftResultLabel(result.ToString());
 
             }
+            else if(last_operation==2)
+            {
+                Minus();
+                resultLabel.Text = " ";
+                ShiftResultLabel(result.ToString());
+            }
             else
             {
                 resultLabel.Text = " ";
@@ -284,6 +316,15 @@ namespace NewCalculatorProj
             resultLabel.Text = result.ToString();
             last_operation = 0;
             press_equality = true;
+        }
+
+        private void minusButton_Click(object sender, EventArgs e)
+        {
+            result = Decimal.Parse(resultLabel.Text);
+            resultLabel.Text = "0";
+            ShiftResultLabel(" ");
+            last_operation = 2;
+            press_equality = false;
         }
     }
 }

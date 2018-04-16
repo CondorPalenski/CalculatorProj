@@ -269,6 +269,7 @@
             this.minusButton.TabIndex = 19;
             this.minusButton.Text = "-";
             this.minusButton.UseVisualStyleBackColor = true;
+            this.minusButton.Click += new System.EventHandler(this.minusButton_Click);
             // 
             // twoButton
             // 
